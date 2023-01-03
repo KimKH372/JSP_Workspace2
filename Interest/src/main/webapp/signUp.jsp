@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <link href="css/styles.css" rel="stylesheet" />
 <style>
 img{
 	display: inline-block;
@@ -30,7 +31,7 @@ img{
 			    <div class="input-group-prepend">
 			      <span class="input-group-text">아이디</span>
 			    </div>
-			      <input type="text" class="form-control" id="userid" name="userid" readonly="readonly" size=20>
+			      <input type="text" class="form-control" id="userid" name="userid" size=20>
 			    <div class="col align-self-end" >
 			          <button  type="button"  id="idcheckBtn"  class="btn btn-primary">중복확인</button>
 			   	</div>
