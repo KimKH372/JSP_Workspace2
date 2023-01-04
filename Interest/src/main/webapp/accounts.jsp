@@ -14,7 +14,7 @@
 				PreparedStatement psmt =null;
 				ResultSet rs = null;
 				
-				String sql = "select * from product";
+				String sql = "select * from account";
 				psmt = conn.prepareStatement(sql);
 				rs = psmt.executeQuery();
 				while (rs.next()) {

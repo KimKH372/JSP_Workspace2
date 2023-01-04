@@ -3,7 +3,7 @@
 <%@ page import="dto.Product"%>
 <%@ page import="dao.ProductRepository"%>
 <%
-	String id = request.getParameter("id");
+String id = request.getParameter("id");
 	if (id == null || id.trim().equals("")) {
 		response.sendRedirect("products.jsp");
 		return;
@@ -21,7 +21,7 @@
 	for (int i = 0; i < cartList.size(); i++) { // 상품리스트 하나씩 출력하기
 		goodsQnt = cartList.get(i);
 		if (goodsQnt.getProductId().equals(id)) {
-			cartList.remove(goodsQnt);
+	cartList.remove(goodsQnt);
 		}
 	}
 

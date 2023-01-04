@@ -1,4 +1,4 @@
-﻿<%@ page contentType="text/html; charset=utf-8"%>
+<%@ page contentType="text/html; charset=utf-8"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="dto.Product"%>
 <%@ page import="dao.ProductRepository"%>
@@ -23,7 +23,7 @@
 			<table width="100%">
 				<tr>
 					<td align="left"><a href="./deleteCart.jsp?cartId=<%=cartId%>" class="btn btn-danger">삭제하기</a></td>
-					<td align="right"><a href="./shippingInfo.jsp?cartId=<%= cartId %>" class="btn btn-success">주문하기</a></td>
+					<td align="right"><a href="./shippingInfo.jsp?cartId=<%=cartId%>" class="btn btn-success">주문하기</a></td>
 				</tr>
 			</table>
 		</div>
@@ -36,16 +36,16 @@
 					<th>소계</th>
 					<th>비고</th>
 				</tr>
-				<%				
-					int sum = 0;
-					ArrayList<Product> cartList = (ArrayList<Product>) session.getAttribute("cartlist");
-					if (cartList == null)
-						cartList = new ArrayList<Product>();
+				<%
+				int sum = 0;
+							ArrayList<Product> cartList = (ArrayList<Product>) session.getAttribute("cartlist");
+							if (cartList == null)
+								cartList = new ArrayList<Product>();
 
-					for (int i = 0; i < cartList.size(); i++) { // 상품리스트 하나씩 출력하기
-						Product product = cartList.get(i);
-						int total = product.getUnitPrice() * product.getQuantity();
-						sum = sum + total;
+							for (int i = 0; i < cartList.size(); i++) { // 상품리스트 하나씩 출력하기
+								Product product = cartList.get(i);
+								int total = product.getUnitPrice() * product.getQuantity();
+								sum = sum + total;
 				%>
 				<tr>
 					<td><%=product.getProductId()%> - <%=product.getPname()%></td>

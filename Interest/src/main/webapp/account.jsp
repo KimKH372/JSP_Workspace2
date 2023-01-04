@@ -1,3 +1,5 @@
+<%@page import="dto.Account"%>
+<%@page import="dao.AccountRepository"%>
 <%@ page contentType="text/html; charset=utf-8"%>
 <%-- <%@ page import="dto.Product"%>
 <%@ page import="dao.ProductRepository"%> --%>

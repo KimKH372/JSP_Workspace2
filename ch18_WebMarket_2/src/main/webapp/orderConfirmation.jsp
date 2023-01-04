@@ -4,7 +4,7 @@
 <%@ page import="dto.Product"%>
 <%@ page import="dao.ProductRepository"%>
 <%
-	request.setCharacterEncoding("UTF-8");
+request.setCharacterEncoding("UTF-8");
 //해당 웹브라우저 마다 하나의 세션의 고유 아이디 정보를 , 장바구니 아이디로 재사용 중. 
 	String cartId = session.getId();
 
@@ -22,26 +22,26 @@
 	// 널 체크, 널이 아니면 작업함. 
 	if (cookies != null) {
 		for (int i = 0; i < cookies.length; i++) {
-			// 배열에서 각 인덱스 번호 차례로 불러오기. 
-			Cookie thisCookie = cookies[i];
-			// 쿠키라는 저장소에서 해당 키의 이름을 가져왔다.
-			String n = thisCookie.getName();
-			// 가져온 이름의 값이 조건문에 해당하면, 
-			// 내보낼때, 전달하기 편하게 하기위해 
-			// URLEncoder 로 한부분을 역으로 URLDecoder 작업을 한다. 
-			if (n.equals("Shipping_cartId"))
-			// thisCookie.getValue() 해당 쿠키라는 객체의 값을 가져와서, utf-8 형식으로 
-				shipping_cartId = URLDecoder.decode((thisCookie.getValue()), "utf-8");
-			if (n.equals("Shipping_name"))
-				shipping_name = URLDecoder.decode((thisCookie.getValue()), "utf-8");
-			if (n.equals("Shipping_shippingDate"))
-				shipping_shippingDate = URLDecoder.decode((thisCookie.getValue()), "utf-8");
-			if (n.equals("Shipping_country"))
-				shipping_country = URLDecoder.decode((thisCookie.getValue()), "utf-8");
-			if (n.equals("Shipping_zipCode"))
-				shipping_zipCode = URLDecoder.decode((thisCookie.getValue()), "utf-8");
-			if (n.equals("Shipping_addressName"))
-				shipping_addressName = URLDecoder.decode((thisCookie.getValue()), "utf-8");
+	// 배열에서 각 인덱스 번호 차례로 불러오기. 
+	Cookie thisCookie = cookies[i];
+	// 쿠키라는 저장소에서 해당 키의 이름을 가져왔다.
+	String n = thisCookie.getName();
+	// 가져온 이름의 값이 조건문에 해당하면, 
+	// 내보낼때, 전달하기 편하게 하기위해 
+	// URLEncoder 로 한부분을 역으로 URLDecoder 작업을 한다. 
+	if (n.equals("Shipping_cartId"))
+	// thisCookie.getValue() 해당 쿠키라는 객체의 값을 가져와서, utf-8 형식으로 
+		shipping_cartId = URLDecoder.decode((thisCookie.getValue()), "utf-8");
+	if (n.equals("Shipping_name"))
+		shipping_name = URLDecoder.decode((thisCookie.getValue()), "utf-8");
+	if (n.equals("Shipping_shippingDate"))
+		shipping_shippingDate = URLDecoder.decode((thisCookie.getValue()), "utf-8");
+	if (n.equals("Shipping_country"))
+		shipping_country = URLDecoder.decode((thisCookie.getValue()), "utf-8");
+	if (n.equals("Shipping_zipCode"))
+		shipping_zipCode = URLDecoder.decode((thisCookie.getValue()), "utf-8");
+	if (n.equals("Shipping_addressName"))
+		shipping_addressName = URLDecoder.decode((thisCookie.getValue()), "utf-8");
 		}
 	}
 %>
@@ -63,12 +63,22 @@
 		</div>
 		<div class="row justify-content-between">
 			<div class="col-4" align="left">
-				<strong>배송 주소</strong> <br> 성명 : <% out.println(shipping_name); %><br> 
-				우편번호 : <% 	out.println(shipping_zipCode);%><br> 
-				주소 : <%	out.println(shipping_addressName);%>(<%	out.println(shipping_country);%>)<br>
+				<strong>배송 주소</strong> <br> 성명 : <%
+ out.println(shipping_name);
+ %><br> 
+				우편번호 : <%
+ out.println(shipping_zipCode);
+ %><br> 
+				주소 : <%
+ out.println(shipping_addressName);
+ %>(<%
+ out.println(shipping_country);
+ %>)<br>
 			</div>
 			<div class="col-4" align="right">
-				<p>	<em>배송일: <% out.println(shipping_shippingDate);	%></em>
+				<p>	<em>배송일: <%
+	out.println(shipping_shippingDate);
+	%></em>
 			</div>
 		</div>
 		<div>
@@ -80,14 +90,14 @@
 				<th class="text-center">소계</th>
 			</tr>
 			<%
-				int sum = 0;
-				ArrayList<Product> cartList = (ArrayList<Product>) session.getAttribute("cartlist");
-				if (cartList == null)
-					cartList = new ArrayList<Product>();
-				for (int i = 0; i < cartList.size(); i++) { // 상품리스트 하나씩 출력하기
-					Product product = cartList.get(i);
-					int total = product.getUnitPrice() * product.getQuantity();
-					sum = sum + total;
+			int sum = 0;
+					ArrayList<Product> cartList = (ArrayList<Product>) session.getAttribute("cartlist");
+					if (cartList == null)
+						cartList = new ArrayList<Product>();
+					for (int i = 0; i < cartList.size(); i++) { // 상품리스트 하나씩 출력하기
+						Product product = cartList.get(i);
+						int total = product.getUnitPrice() * product.getQuantity();
+						sum = sum + total;
 			%>
 			<tr>
 				<td class="text-center"><em><%=product.getPname()%> </em></td>

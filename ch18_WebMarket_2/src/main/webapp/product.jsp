@@ -1,4 +1,4 @@
-﻿<%@ page contentType="text/html; charset=utf-8"%>
+<%@ page contentType="text/html; charset=utf-8"%>
 <%@ page import="dto.Product"%>
 <%@ page import="dao.ProductRepository"%>
 <%@ page errorPage="exceptionNoProductId.jsp"%>
@@ -27,11 +27,11 @@
 	</div>
 	<%
 	//id 상품의 아이디입니다.
-		String id = request.getParameter("id");
-	
-	//클래스에 등록된 샘플 상품을 사용하는 대신 디비 사용하기위해서
-		ProductRepository dao = ProductRepository.getInstance();
-		Product product = dao.getProductById(id);
+			String id = request.getParameter("id");
+		
+		//클래스에 등록된 샘플 상품을 사용하는 대신 디비 사용하기위해서
+			ProductRepository dao = ProductRepository.getInstance();
+			Product product = dao.getProductById(id);
 	%>
 	
 		<!--  디비에 연결하기 위한 정보를 담아둔 페이지. -->
