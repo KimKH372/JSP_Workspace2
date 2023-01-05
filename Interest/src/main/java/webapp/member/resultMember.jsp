@@ -29,5 +29,8 @@
 			}
 		%>
 	</div>	
+		<div class="container">
+		<p><a href="accounts.jsp" class="btn btn-secondary"> 계좌 목록 &raquo;</a>		
+	</div>
 </body>
 </html>
