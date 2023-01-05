@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=utf-8"%>
+<%@ page contentType="text/html; charset=UTF-8"%>
 <%@ page import="java.util.*"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
@@ -29,7 +29,8 @@
 	driver="com.mysql.jdbc.Driver" user="root" password="k404" />
 
 <sql:update dataSource="${dataSource}" var="resultSet">
-   UPDATE member SET PASSWORD=?, NAME=?, GENDER=?, BIRTH=?, MAIL=?, PHONE=?, ADDRESS=? WHERE ID=?
+   INSERT INTO member VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+   <sql:param value="<%=id%>" />
 	<sql:param value="<%=password%>" />
 	<sql:param value="<%=name%>" />
 	<sql:param value="<%=gender%>" />
@@ -37,10 +38,10 @@
 	<sql:param value="<%=mail%>" />
 	<sql:param value="<%=phone%>" />
 	<sql:param value="<%=address%>" />
-	<sql:param value="<%=id%>" />
+	<sql:param value="<%=timestamp%>" />
 </sql:update>
 
 <c:if test="${resultSet>=1}">
-	<c:redirect url="resultMember.jsp?msg=0" />
+	<c:redirect url="resultMember.jsp?msg=1" />
 </c:if>
 

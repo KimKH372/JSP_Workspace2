@@ -1,18 +1,17 @@
 <%@page import="dto.Account"%>
 <%@page import="dao.AccountRepository"%>
-<%@ page contentType="text/html; charset=utf-8"%>
-<%-- <%@ page import="dto.Product"%>
-<%@ page import="dao.ProductRepository"%> --%>
-<%@ page errorPage="exceptionNoProductId.jsp"%>
+<%@ page contentType="text/html; charset=UTF-8"%>
+
+<%@ page errorPage="exceptionNoAccountId.jsp"%>
 <%@ page import="java.sql.*"%>
 <!DOCTYPE html>
 <html>
 <head>
 <link rel="stylesheet" href="./resources/css/bootstrap.min.css" />
-<title>상품 상세 정보</title>
+<title>계좌 상세 정보</title>
 <script type="text/javascript">
 	function addToCart() {
-		if (confirm("상품을 장바구니에 추가하시겠습니까?")){
+		if (confirm("계좌를 관심목록에 추가하시겠습니까?")){
 			document.addForm.submit();
 		}esle{
 			document.addForm.reset();
@@ -24,7 +23,7 @@
 	<jsp:include page="header.jsp" />
 	<div class="jumbotron">
 		<div class="container">
-			<h1 class="display-3">상품 정보</h1>
+			<h1 class="display-3">계좌 정보</h1>
 		</div>
 	</div>
 	<%
@@ -39,7 +38,7 @@
 	<%
 		PreparedStatement psmt= null;
 		ResultSet rs= null;
-		String sql = "select * from product WHERE P_id=?";
+		String sql = "select * from account WHERE P_id=?";
 		psmt= conn.prepareStatement(sql);
 		psmt.setString(1, id);
 		rs = psmt.executeQuery();
@@ -47,20 +46,19 @@
 		while (rs.next()) {
 	%>
 		<div class="col-md-5">
-		<%-- <img src="c:/upload/<%=product.getFilename()%>" style="width: 100%" /> --%>
+		 <img src="./resources/images/<%=rs.getString("p_fileName")%>" style="width: 100%" /> 
 		</div>
 		<div class="col-md-6">
-		<h3><%=Account.getPname()%></h3>
-			<p><%=Account.getDescription()%>
-			<p><b>상품 코드 : </b><span class="badge badge-danger"> <%=account.getAccountId()%></span>
-			<p><b>제조사</b> : <%=Account.getManufacturer()%>
-			<p><b>분류</b> : <%=Account.getCategory()%>
-			<p><b>재고 수</b> : <%=Account.getUnitsInStock()%>
-			<h4><%=Account.getUnitPrice()%>원</h4>
+			<p><b>계좌 코드 : </b><span class="badge badge-danger"> <%=account.getAccountId()%></span>
+				<h3><%=rs.getString("p_name") %></h3>
+				<h3><%=rs.getString("p_bank") %></h3>
+				<h3><%=rs.getString("p_rate") + "%" %></h3>
+				<h3><%=rs.getString("p_description") %></h3>
+				<h3><%=rs.getString("p_category") %></h3>
 			<p><form name="addForm" action="./addCart.jsp?id=<%=account.getAccountId()%>" method="post">
-			<a href="#" class="btn btn-info" onclick="addToCart()"> 상품 주문 &raquo;</a>
-			<a href="./cart.jsp" class="btn btn-warning"> 장바구니 &raquo;</a> 
-			<a href="./products.jsp" class="btn btn-secondary"> 상품 목록 &raquo;</a>
+			<a href="#" class="btn btn-info" onclick="addToCart()"> 계좌개설 &raquo;</a>
+			<a href="./cart.jsp" class="btn btn-warning"> 관심목록 &raquo;</a> 
+			<a href="./accounts.jsp" class="btn btn-secondary"> 계좌목록 &raquo;</a>
 		</form>
 		</div>
 		<%

@@ -88,7 +88,7 @@ public class BoardController {
 				pageNum = Integer.parseInt(request.getParameter("pageNum"));
 			
 			String items = request.getParameter("items");
-			String items = request.getParameter("items");
+			String text = request.getParameter("text");
 			
 			int total_record = dao.getListCount(items, text);
 			

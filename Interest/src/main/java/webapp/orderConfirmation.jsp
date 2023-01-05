@@ -84,13 +84,12 @@
 					cartList = new ArrayList<Account>();
 				for (int i = 0; i < cartList.size(); i++) { // 상품리스트 하나씩 출력하기
 					Account account = cartList.get(i);
-					int total = account.getUnitPrice() * account.getQuantity();
+					int total = account.getRate() * account.getQuantity();
 					sum = sum + total;
 			%>
 			<tr>
 				<td class="text-center"><em><%=account.getPname()%> </em></td>
-				<td class="text-center"><%=account.getQuantity()%></td>
-				<td class="text-center"><%=account.getUnitPrice()%>원</td>
+				<td class="text-center"><%=account.getRate()%></td>
 				<td class="text-center"><%=total%>원</td>
 			</tr>
 			<%

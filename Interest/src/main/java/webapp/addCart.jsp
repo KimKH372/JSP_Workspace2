@@ -11,7 +11,7 @@
 // 카트에 추가하는 상품의 아이디.
 	String id = request.getParameter("id");
 	if (id == null || id.trim().equals("")) {
-		response.sendRedirect("Account.jsp");
+		response.sendRedirect("account.jsp");
 		return;
 	}
 	// ProductRepository 형으로 객체를 호출했음. 

@@ -14,24 +14,29 @@ public class AccountRepository {
 		return instance;
 	}
 	public AccountRepository() {
-		Account phone = new Account("P1234", "iPhone 6s", 800000);
-		phone.setDescription("4.7-inch, 1334X750 Renina HD display, 8-megapixel iSight Camera");
-		phone.setCategory("Smart Phone");
-		phone.setManufacturer("Apple");
-		phone.setUnitsInStock(1000);
-		phone.setCondition("New");
-		phone.setFilename("P1234.png");
+		Account asavings = new Account("A101", "가나다통장", 5.0);
+		asavings.setAccountId("A101");
+		asavings.setCategory("저축은행");
+		asavings.setRate(5.0);
 		
-		Account notebook = new Account("P1234", "iPhone 6s", 800000);
-		phone.setDescription("4.7-inch, 1334X750 Renina HD display, 8-megapixel iSight Camera");
-		phone.setCategory("Smart Phone");
-		phone.setManufacturer("Apple");
-		phone.setUnitsInStock(1000);
-		phone.setCondition("New");
-		phone.setFilename("P1234.png");
+		/*
+		 * Account phone = new Account("P1234", "iPhone 6s", 800000); phone.
+		 * setDescription("4.7-inch, 1334X750 Renina HD display, 8-megapixel iSight Camera"
+		 * ); phone.setCategory("Smart Phone"); phone.setManufacturer("Apple");
+		 * phone.setUnitsInStock(1000); phone.setCondition("New");
+		 * phone.setFilename("P1234.png");
+		 * 
+		 * Account notebook = new Account("P1234", "iPhone 6s", 800000); notebook.
+		 * setDescription("4.7-inch, 1334X750 Renina HD display, 8-megapixel iSight Camera"
+		 * ); notebook.setCategory("Smart Phone"); notebook.setManufacturer("Apple");
+		 * notebook.setUnitsInStock(1000); notebook.setCondition("New");
+		 * notebook.setFilename("P1234.png");
+		 */
 		
-		listOfAccounts.add(phone);
-		listOfAccounts.add(notebook);
+		listOfAccounts.add(asavings);
+		/*
+		 * listOfAccounts.add(phone); listOfAccounts.add(notebook);
+		 */
 	}
 	public ArrayList<Account> getAllProducts() {
 		return listOfAccounts;

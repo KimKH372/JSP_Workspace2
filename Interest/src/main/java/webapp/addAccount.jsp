@@ -8,8 +8,7 @@
 <title>계좌 등록</title>
 </head>
 <body>
-	<fmt:setLocale value='<%= request.getParameter("language") %>'/>
-	<fmt:bundle basename="bundle.message" >
+
 	<jsp:include page="header.jsp" />	
 	<div class="jumbotron">
 		<div class="container">
@@ -17,10 +16,7 @@
 		</div>
 	</div>
 	<div class="container">
-		<div class="text-right"> 
-			<a href="?language=ko" >Korean</a>|<a href="?language=en" >English</a>
-			<a href="logout.jsp" class="btn btn-sm btn-success pull-right">logout</a>
-		</div>	
+			
 		<form name="newAccount" action="./processAddAccount.jsp" class="form-horizontal" method="post" enctype="multipart/form-data">
 			<div class="form-group row">
 				<label class="col-sm-2"><fmt:message key="accountId" /></label>
@@ -35,9 +31,9 @@
 				</div>
 			</div>
 			<div class="form-group row">
-				<label class="col-sm-2"><fmt:message key="unitPrice"/></label>
+				<label class="col-sm-2"><fmt:message key="Rate"/></label>
 				<div class="col-sm-3">
-					<input type="text" id="unitPrice"  name="unitPrice" class="form-control" >
+					<input type="text" id="Rate"  name="Rate" class="form-control" >
 				</div>
 			</div>
 			<div class="form-group row">
@@ -47,29 +43,17 @@
 				</div>
 			</div>
 			<div class="form-group row">
-				<label class="col-sm-2"><fmt:message key="manufacturer"/></label>
-				<div class="col-sm-3">
-					<input type="text" name="manufacturer" class="form-control">
-				</div>
-			</div>
-			<div class="form-group row">
 				<label class="col-sm-2"><fmt:message key="category" /></label>
 				<div class="col-sm-3">
 					<input type="text" name="category" class="form-control" >
 				</div>
 			</div>
 			<div class="form-group row">
-				<label class="col-sm-2"><fmt:message key="unitsInStock" /></label>
-				<div class="col-sm-3">
-					<input type="text" id="unitsInStock" name="unitsInStock" class="form-control" >
-				</div>
-			</div>
-			<div class="form-group row">
 				<label class="col-sm-2"><fmt:message key="condition" /></label>
 				<div class="col-sm-5">
-					<input type="radio" name="condition" value="New " ><fmt:message key="condition_New"/> 
-					<input type="radio" name="condition" value="Old" ><fmt:message key="condition_Old" />
-					<input type="radio" name="condition" value="Refurbished" ><fmt:message key="condition_Refurbished" />
+					<input type="radio" name="condition" value="은행" ><fmt:message key="은행"/> 
+					<input type="radio" name="condition" value="저축은행" ><fmt:message key="저축은행" />
+					<input type="radio" name="condition" value="CMA" ><fmt:message key="CMA" />
 				</div>
 			</div>
 			<div class="form-group row">
@@ -85,6 +69,5 @@
 			</div>
 		</form>
 	</div>
-	</fmt:bundle>
 </body>
 </html>

@@ -5,12 +5,12 @@
 		<role-name>admin</role-name>
 	</security-role>
 	<security-constraint>
-		<display-name>WebMarket Security</display-name>
+		<display-name>Interest Security</display-name>
 		<web-resource-collection>
-			<web-resource-name>WebMarket</web-resource-name>
+			<web-resource-name>Interest</web-resource-name>
 			<description></description>
-			<url-pattern>/addProduct.jsp</url-pattern>
-			<url-pattern>/editProduct.jsp</url-pattern>
+<!-- 			<url-pattern>/addAccount.jsp</url-pattern>
+			<url-pattern>/editAccount.jsp</url-pattern> -->
 		</web-resource-collection>
 		<auth-constraint>
 			<description>권한 관리자명</description>
@@ -31,17 +31,17 @@
 	</error-page>	
 	
 	<!-- 콘솔 상에 해당 로그를 출력하는 설정. -->
-	<filter>
+	<!-- <filter>
 		<filter-name>LogFilter</filter-name>
 		<filter-class>filter.LogFilter</filter-class>     
 	</filter>
 	<filter-mapping>
 		<filter-name>LogFilter</filter-name>
 		<url-pattern>/products.jsp</url-pattern>
-	</filter-mapping>	
+	</filter-mapping>	 -->
 	
 	<!-- 파일 상에 해당 로그를 출력하는 설정. -->
-	<filter>
+<!-- 	<filter>
 		<filter-name>LogFileFilter</filter-name>
 		<filter-class>filter.LogFileFilter</filter-class>
 		<init-param>
@@ -52,7 +52,7 @@
 	<filter-mapping>
 		<filter-name>LogFileFilter</filter-name>
 		<url-pattern>/*</url-pattern>
-	</filter-mapping>
+	</filter-mapping> -->
 	
 	<servlet>
 		<servlet-name>BoardController</servlet-name>

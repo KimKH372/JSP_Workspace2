@@ -7,15 +7,20 @@ public class Account implements Serializable{
 
 	private String accountId;
 	private String pname;
-	private Integer unitPrice;
 	private String description;
 	private String manufacturer;
 	private String category;
-	private long unitsInStock;
-	private String condition;
 	private String filename;
-	private int quantity;
+	private double rate;
 	
+	public double getRate() {
+		return rate;
+	}
+
+	public void setRate(double rate) {
+		this.rate = rate;
+	}
+
 	public String getAccountId() {
 		return accountId;
 	}
@@ -32,13 +37,6 @@ public class Account implements Serializable{
 		this.pname = pname;
 	}
 
-	public Integer getUnitPrice() {
-		return unitPrice;
-	}
-
-	public void setUnitPrice(Integer unitPrice) {
-		this.unitPrice = unitPrice;
-	}
 
 	public String getDescription() {
 		return description;
@@ -64,36 +62,12 @@ public class Account implements Serializable{
 		this.category = category;
 	}
 
-	public long getUnitsInStock() {
-		return unitsInStock;
-	}
-
-	public void setUnitsInStock(long unitsInStock) {
-		this.unitsInStock = unitsInStock;
-	}
-
-	public String getCondition() {
-		return condition;
-	}
-
-	public void setCondition(String condition) {
-		this.condition = condition;
-	}
-
 	public String getFilename() {
 		return filename;
 	}
 
 	public void setFilename(String filename) {
 		this.filename = filename;
-	}
-
-	public int getQuantity() {
-		return quantity;
-	}
-
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
 	}
 
 	public static long getSerialversionuid() {
@@ -104,10 +78,10 @@ public class Account implements Serializable{
 		super();
 	}
 	
-	public Account(String accountId, String pname, Integer unitPrice) {
+	public Account(String accountId, String pname, Double rate) {
 		this.accountId = accountId;
 		this.pname = pname;
-		this.unitPrice = unitPrice;
+		this.rate = rate;
 	}
 	
 	
